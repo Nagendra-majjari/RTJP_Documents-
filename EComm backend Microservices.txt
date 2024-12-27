@@ -1,0 +1,514 @@
+
+===============================================================
+Steps to develop Service Registry Application (Eureka Server)
+===============================================================
+
+1) Create SpringBoot application with below dependency
+
+	 - Eureka Server (spring-cloud-starter-netflix-eureka-server)
+	 - devtools
+
+2) Configure @EnableEurekaServer annotation in boot start class
+
+3) Configure below properties in application.yml file
+
+spring:
+  application:
+    name: 01_Service_Registry
+server:
+  port: 8761
+eureka:
+  client:
+    register-with-eureka: false	
+
+
+Note-1: If "Service-Registry" project port is 8761 then clients can discover "service-registry" and will register automatically with service-registry. 
+
+Note-2 : If service-registry project running on any other port number then we have to register clients with service-registry manually.
+
+4) Once application started we can access Eureka Dashboard using below URL
+
+		URL : http://localhost:8761/
+
+
+======================================
+Steps to develop Spring Admin-Server
+======================================
+
+1) Create Boot application with "admin-server" dependency 
+  (select it while creating the project)
+
+2) Configure @EnableAdminServer annotation at start class 
+
+3) Change Port Number (Optional)
+
+spring:
+  application:
+    name: 02_Admin_Server
+server:
+  port: 1111
+
+
+4) Run the boot application
+
+5) Access application URL in browser (We can see Admin Server UI)
+
+    URL : http://localhost:1111/    
+
+
+======================================
+Steps to work with Zipkin Server
+======================================    
+
+1) Download Zipin Jar file 
+
+    URL : https://zipkin.io/pages/quickstart.html
+
+2) Run zipkin jar file 
+
+    $ java -jar <jar-name>    
+
+3) Zipkin Server Runs on Port Number 9411 
+
+4) Access zipkin server dashboard
+
+    URL : http://localhost:9411/    
+
+
+================================
+Developing Config Server App
+================================    
+
+1) Create Git Repository and keep ymls files required for microservices
+
+Note: we should keep file name as application-name.
+
+
+### Git Repo : https://github.com/ashokitschool/configuration_properties
+
+
+2) Create Spring Starter application with below dependencies
+
+    a) Config Server
+    b) devtools
+
+3) Write @EnableConfigServer annotation at boot start class  
+
+
+4) Configure below properties in application.yml file
+
+spring:
+  application:
+    name: 07_Cloud_Config_Server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ashokitschool/configuration_properties
+server:
+  port: 2222  
+
+5) Run Config Server application
+
+
+====================
+Develop Product_API
+====================
+
+1) Create Spring Boot application with below dependencies
+
+    - eureka-discovery-client
+    - admin-client  
+    - zipkin
+    - config client
+
+    - starter-data-rest
+    - data-jpa
+    - mysql driver
+    - devtools
+    - actuator
+
+2) Configure @EnableDiscoveryClient annotation at boot start class.
+
+
+3) Configure below properties in application.yml file
+
+spring:
+  application:
+    name: products-api
+  config:
+    import: optional:configserver:http://localhost:2222
+
+4) create "products-api.yml" in git repo which we have configured in "config-server" with below properties
+
+server:
+  port: 7071
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ashokit_ecomm
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  data:
+    rest:
+      base-path: /api
+  boot:
+   admin:
+     client:
+       url: http://localhost:1111/      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+     
+====================
+Develop Orders_API
+====================  
+
+1) Create Spring Boot application with below dependencies
+
+    - eureka-discovery-client
+    - admin-client  
+    - zipkin
+    - config client
+
+    - starter-mail
+    - web-starter
+    - data-jpa
+    - mysql driver
+    - devtools
+    - actuator
+    - feign client
+    - lombok
+    - razorpay
+
+2) Configure @EnableDiscoveryClient annotation at boot start class.
+
+3) Configure below properties in "application.yml" file
+
+spring:
+  application:
+    name: orders-api
+  config:
+    import: optional:configserver:http://localhost:2222
+
+4) create "orders-api.yml" in git repo which we have configured in "config-server" with below properties
+
+server:
+  port: 7072
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ashokit_ecomm
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  data:
+    rest:
+      base-path: /api
+  boot:
+   admin:
+     client:
+       url: http://localhost:1111/      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'        
+razorpay:
+  key:
+    id: rzp_test_m6SJuhq4RdNeRR
+    secret: XU8nmz0ouE0xhpz6eT4rd00V        
+
+
+====================
+Develop Customer_API
+====================     
+
+1) Create Spring Boot application with below dependencies
+
+    - eureka-discovery-client
+    - admin-client  
+    - zipkin
+    - config client
+
+    - starter-mail
+    - web-starter
+    - data-jpa
+    - mysql driver
+    - devtools
+    - actuator
+    - feign client
+    - lombok
+
+2) Configure @EnableDiscoveryClient annotation at boot start class.
+
+3) Configure below properties in "application.yml" file
+
+spring:
+  application:
+    name: customer-api
+  config:
+    import: optional:configserver:http://localhost:2222
+
+4) create "customer-api.yml" in git repo which we have configured in "config-server" with below properties
+
+server:
+  port: 7073
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ashokit_ecomm
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  data:
+    rest:
+      base-path: /api
+  boot:
+   admin:
+     client:
+       url: http://localhost:1111/
+  mail:
+   host: smtp.gmail.com
+   port: 587
+   username: 
+   password: 
+   properties:
+     mail:
+      smtp:
+        auth: true
+        starttls:
+        enable: true     
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+====================
+Develop Admin API
+====================    
+
+1) Create Spring Boot application with below dependencies
+
+    - eureka-discovery-client
+    - admin-client  
+    - zipkin
+    - config client
+
+    - web-starter
+    - data-jpa
+    - mysql driver
+    - devtools
+    - actuator
+    - feign client
+    - lombok
+
+2) Configure @EnableDiscoveryClient annotation at boot start class.
+
+3) Configure below properties in "application.yml" file
+
+spring:
+  application:
+    name: admin-api
+  config:
+    import: optional:configserver:http://localhost:2222
+
+4) create "admin-api.yml" in git repo which we have configured in "config-server" with below properties
+
+server:
+  port: 7074
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ashokit_ecomm
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  data:
+    rest:
+      base-path: /api
+  boot:
+   admin:
+     client:
+       url: http://localhost:1111/      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+==========================
+Develop Notifications API
+==========================   
+
+1) Create Spring Boot application with below dependencies
+
+    - eureka-discovery-client
+    - admin-client  
+    - zipkin
+    - config client
+
+    - web-starter
+    - data-jpa
+    - mysql driver
+    - devtools
+    - actuator
+    - feign client
+    - lombok
+    - aws sdk
+    - itext
+
+2) Configure @EnableDiscoveryClient annotation at boot start class.
+
+3) Configure below properties in "application.yml" file
+
+spring:
+  application:
+    name: notification-api
+  config:
+    import: optional:configserver:http://localhost:2222
+
+4) create "notification-api.yml" in git repo which we have configured in "config-server" with below properties
+
+server:
+  port: 7074
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ashokit_ecomm
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  data:
+    rest:
+      base-path: /api
+  boot:
+   admin:
+     client:
+       url: http://localhost:1111/      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'server:
+  port: 7075
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecommerce
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ''
+    password: ''
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+pdfDir: invoices/
+reportFileName: invoice
+reportFileNameDateFormat: dd_MMMM_yyyy
+localDateFormat: '"dd MMMM yyyy HH:mm:ss"'
+logoImgPath: logo.png
+logoImgScale: 50,50
+currencySymbol: $
+table_noOfColumns: 4
+table:
+  columnNames: Item Name,Quantity,Unit Price,Net Price
+aws:
+  accessKey: ''
+  secret: ''
+  region: ''
+  bucketName: ''
+wati:
+  notification:
+    template:
+      name: delivery_notification
+  payment:
+    reminder:
+      template:
+        name: payment_reminders
+  send:
+    template:
+      msg:
+        url: ''
+  token: ''
+
+==========================
+Develop API Gateway
+==========================  
+
+1) Create Spring boot application with below dependencies
+
+    -> eureka-client
+    -> cloud-reactive-gateway
+    -> devtools
+
+2) Configure @EnableDiscoveryClient annotation at boot start class
+
+3) Configure below properties in "application.yml" file
+
+spring:
+  application:
+    name: api-gateway
+
+4) create "api-gateway.yml" in git repo which we have configured in "config-server" with below properties.
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: products-api
+        uri: lb://products-api
+        predicates: 
+          - Path=/api1/**
+      - id: order-api
+        uri: lb://orders-api
+        predicates: 
+          - Path=/api2/**
+      - id: customer-api
+        uri: lb://customer-api
+        predicates: 
+          - Path=/api3/**
+      - id: admin-api
+        uri: lb://admin-api
+        predicates: 
+          - Path=/api4/**
+      - id: notification-api
+        uri: lb://notification-api
+        predicates: 
+          - Path=/api5/**

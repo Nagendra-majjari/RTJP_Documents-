@@ -1,0 +1,88 @@
+
+===========================
+Interservice Communication
+===========================
+
+=> If one service is communicating with another service then it is called as Interservice communication.
+
+=> To establish interservice communication we have 3 options
+
+		1) RestTemplate
+		2) WebClient
+		3) FeignClient
+
+=> If we use RestTemplate or WebClient then we need to configure service URL to send HTTP request. 
+
+Note: If service URL is modified or if service is running with multiple instances then our code will not work as expected.
+
+=> To overcome this problem we will use "FeignClient" for interservice communication. 
+
+Note: feign-client will use "service-name" for communication. 
+
+=> FeignClient will get "service-urls" from service-registry based on given service-name for communication.
+
+=====================================
+Interserivice communication usecases
+=====================================
+
+# Scenario-1 : "orders-api" will communicate with "customer-api" to create customer account or get customer account based on given email id when new order got placed.
+
+# Scenario-2 : "customer-api" will communicate with "orders-api" to get logged in customer orders to display in dashboard.
+
+"Scenario-3" : "admin-api" will communicate with "orders-api" to get all orders based on filters for reports generation.
+
+===========================
+FeignClient implementation
+===========================
+
+# Step-1 : Write @EnableFeignClients annotation at orders-api start class.
+
+---------------------------------------------------------
+@SpringBootApplication
+@EnableDiscoveryClient
+@EnableFeignClients
+public class PaymentGatewayAppApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PaymentGatewayAppApplication.class, args);
+	}
+
+}
+---------------------------------------------------------
+
+# Step-2 : Create FeignClient interface to communicate with customer-api.
+
+--------------------------------------------------
+@FeignClient(name = "customer-api")
+public interface CustomerFeignClient {
+
+	@PostMapping("/api/customer/register")
+	public ResponseEntity<Customer> createCustomerAcc(@RequestBody CustomerDTO customer);
+
+}
+-------------------------------------------------------
+
+# Step-3 : Inject FeignClient into OrderService and call feignclient method as part of "createOrder" method.
+
+--------------------------------------------------
+//invoke customer api
+
+CustomerDTO customerDTO = new CustomerDTO();
+customerDTO.setName(purchaseDto.getCustomer().getName());
+customerDTO.setEmail(purchaseDto.getCustomer().getEmail());
+customerDTO.setPhno(purchaseDto.getCustomer().getPhno());
+
+ResponseEntity<Customer> res = 
+		customerFeignClient.createCustomerAcc(customerDTO);
+
+Customer customer = null;
+
+if(res.getStatusCode().is2xxSuccessful()) {
+	customer = res.getBody();
+}else {
+	throw new Exception("Customer Not Found");
+}
+
+-------------------------------------------------------------
+
+

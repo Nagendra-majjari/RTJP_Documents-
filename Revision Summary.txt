@@ -1,0 +1,88 @@
+
+============================
+Revion Class :: 11-Sep-2023
+============================
+
+1) Maven : Build Tool
+
+2) JIRA : Project mgmt & bug reporting
+
+3) Git Hub : Source Code Repository
+
+4) Bit Bucket : Source Code Repository
+
+5) Log4J : Logging
+
+6) JMETER : Performance Testing
+
+7) Linux OS : Linux commands
+
+8) AWS Cloud : Cloud Computing
+
+				- EC2 (VM + LBR + ASG)
+				- RDS
+				- S3
+				- IAM
+				- Route 53
+				- Elastic Beanstack (PaaS)
+				- Lambdas (Serverless computing)
+
+9) Mini Projects Development				
+
+	 	 - Requirement Analysis
+		 - DB design
+		 - Java Components Analysis
+		 - Coding
+		 - Testing
+		 - Debugging
+
+10) 01-Mini Project (Counsellors Portal)
+
+		 - Sign Up
+		 - Sing In
+		 - Dashboard
+		 - Dynamic Filters
+		 - Session Mgmt
+
+11) 02-Mini Project (User Management)
+		
+		- Requirement Analysis
+		- DB design
+		- Java Components Analysis
+		- Dependent drop downs with AJAX (country + state + city)
+		- Pwd Generation For User and send to email
+		- Reset Pwd after sign-in
+		- Rest API call
+
+
+12) Angular
+
+		- What is Angular
+		- What is SPA
+		- Type Script
+		- Transpilation (tsc)
+		- Angular Archiecture
+			- Components
+			- Template
+			- Data Binding
+			- Directives
+			- Pipes
+			- Services
+			- HttpClient (API Integration)
+			- Routing
+			- Forms (template driven & reative)
+			- Form validations
+			- Mini Project
+	
+
+
+====================================================================================		
+SonarQube For code review (1 or 2 days of time)
+
+Sat & Sun (Microservices workshop)
+
+Spring Security
+
+Major Project development
+
+pending tools

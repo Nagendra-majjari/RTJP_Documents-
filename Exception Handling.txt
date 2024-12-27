@@ -1,0 +1,97 @@
+
+
+==================================
+Exception Handling in the Project
+==================================
+
+=> Unexpected and unwanted situation is called as exception.
+
+=> When exception occurs our program will be terminated abnormally.
+
+=> To handle exceptions we have below keywords in java
+
+		try
+		catch
+		throw
+		throws
+		finally
+
+Note: Using above keyword we can handle exceptions in console apps and in web applications.
+
+
+=> When Exception occurs in REST API we have to send a meaningful message to client application in JSON format.
+
+=> To handle exceptions in REST API we have 2 approaches
+
+		1) Class Based Exception Handling
+
+		2) Global Exception Handling
+
+
+=> Class based exception handling means it will handle exceptions related to that particular class only.
+
+@ExceptionHandler(value = Exception.class)
+public ResponseEntity<ExInfo> handleException(Exception e) {
+
+	ExInfo info = new ExInfo();
+	info.setExCode("EC0001");
+	info.setExMsg(e.getMessage());
+	info.setExDate(LocalDateTime.now());
+
+	return new ResponseEntity<ExInfo>(info, HttpStatus.INTERNAL_SERVER_ERROR);
+}
+
+=> Global exception handling means it is responsible to handle exceptions occured in any class available in the project.
+
+---------------------------------------------------------------------
+public class OrdersNotFoundException extends RuntimeException {
+
+	public OrdersNotFoundException(String msg) {
+		super(msg);
+	}
+}
+---------------------------------------------------------------------
+@Data
+public class ExInfo {
+	
+	private String exCode;
+	private String exMsg;
+	private LocalDateTime exDate;
+
+}
+---------------------------------------------------------------------
+@RestControllerAdvice
+@Slf4j
+public class AppExHandler {
+
+	@ExceptionHandler(value = OrdersNotFoundException.class)
+	public ResponseEntity<ExInfo> handleOrdersEx(OrdersNotFoundException one) {
+		
+		log.error(one.getMessage());
+
+		ExInfo exinfo = new ExInfo();
+		exinfo.setExCode("Ex000");
+		exinfo.setExMsg(one.getMessage());
+		exinfo.setExDate(LocalDateTime.now());
+
+		return new ResponseEntity<ExInfo>(exinfo, HttpStatus.BAD_REQUEST);
+	}
+
+	@ExceptionHandler(value = Exception.class)
+	public ResponseEntity<ExInfo> handleEx(Exception e) {
+
+		ExInfo exinfo = new ExInfo();
+		exinfo.setExCode("Ex001");
+		exinfo.setExMsg(e.getMessage());
+		exinfo.setExDate(LocalDateTime.now());
+
+		return new ResponseEntity<ExInfo>(exinfo, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+}
+
+==================================================================
+
+@RestControllerAdvice : To represent global exception handler
+
+@ExceptionHandler : To map our method to particular exception

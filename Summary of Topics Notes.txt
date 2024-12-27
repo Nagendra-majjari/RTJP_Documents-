@@ -1,0 +1,85 @@
+
+
+1) JRTP Introduction
+
+2) Linux Commands
+
+3) AWS Cloud Services
+
+4) Agile with JIRA
+
+5) Maven
+
+6) Git Hub & BitBucket
+
+7) Logging
+
+8) JMETER
+
+9) 01-Mini-Project (Counsellor Portal)
+
+10) 02-Mini-Project (User Mgmt)
+
+11) SonarQube
+
+12) Nexus
+
+13) Junit + Mocking + Jacocco
+
+14) Docker
+
+15) Jenkins
+
+16) Angular
+
+17) Microservices
+
+		- Eureka
+		- AdminServer
+		- Zipkin Server
+		- Config Server
+		- Feign Client
+		- ApiGateway
+		- Load Balancing
+
+18) Spring Security		
+
+		- basic auth
+		- in-mem auth
+		- login + regiser
+		- oauth
+		- jwt
+
+19) Major Project (E-Comm)
+
+		- Introduction
+		- Architecture
+		- Modules
+
+=================================
+
+1) Microservices Architecture for E-Commerce
+
+2) Security with JWT
+
+3) Tools Integration in major project
+
+4) Kafka + Redis
+
+5) Circuit Breaker
+
+6) Kubernetes 
+
+7) ELK/EFK Stack for Log Monitoring
+
+8) Exception Handling		
+
+9) Final Testing + Bug Fixing
+
+10) Interview Guidance
+
+		- Resume Building
+		- Do's & Don'ts
+		- Joining Formalitie
+		- Exit Formalities
+		- Mock Interviews

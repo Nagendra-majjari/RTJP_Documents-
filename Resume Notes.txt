@@ -1,0 +1,324 @@
+
+## Sample Resumes Format : https://github.com/ashokitschool/Resume_Workshop.git
+
+===================
+Resume Preparation
+===================
+
+## Section-1 : Contact Details (Name + Email + Phno)
+
+Note: Recommended to use new email and new phno while applying for jobs.
+
+## Section-2 : Professional Summary (Expertize)
+
+			- Technologies
+			- Tools
+
+## Section-3 : Experience Summary 
+
+			- Current Company (DOJ to till date)
+			- Previous Company (start-date and end-date)
+			
+Note: Fake exp people don't add multiple companies because we need to submit documents of all the companies.
+
+## Section-4 : Technical Skills
+
+		Backend : Java, J2EE, SpringBoot & Microservices
+		Frontend : Java Script, TypeScript & Angular
+		Databases: Oracle & MySQL
+		DevOps Tools: Maven, Git, Sonar, docker, k8s, jenkins
+		Cloud : AWS
+		OS : Windows + Linux
+
+Note: Don't add the technologies which you don't know.
+
+## Section-5 : Educational Qualifications
+
+		Experienced PPl : Add only highest qualification
+		
+		Freshers : Add all details like (SSC, Inter, Graduation)
+
+## Section-6 : Projects Summary
+
+		- Tech Stack
+		- Description
+		- Roles & Responsibilities
+
+Note: If you want to mention more than 1 project then keep latest project first.
+			
+		1) https://www.nykaa.com/
+		2) https://www.milton.in/
+		3) https://www.decathlon.in/
+		4) https://www.godrejinterio.com/
+		5) https://bantia.in/
+			
+## Section-7 : Declaration			
+
+==============================
+How to show gap as experience
+==============================
+
+2024 => Fresher => Fresher resume
+
+2023 => 1 Year gap => Fresher Resume
+
+2022 => 2 Years gap => 2yr Exp Resume 
+
+2021 => 3 Years gap => 3yr Exp Resume 
+
+2020 => 4 years gap => 3yr exp resume (1 year training)
+
+2019 => 5 Years gap => 2 yrs business + 3 years exp 
+
+2018 => 6 years gap => 3 yrs business + 3 years exp
+
+=======================================
+Documents Required to show experience
+========================================
+
+1) Offer letter
+
+2) Hike Letters
+
+3) Payslips (3 months or 6 months)
+
+4) Bank Statements (6 months)
+
+5) UAN details
+
+6) Form 16 (Tax)
+
+7) Experience Letter / Service letter 
+
+8) Reliving Letter 
+
+===========================
+Don'ts in software company
+===========================
+
+1) Don't send any company related documents to  personal email ids.
+
+2) Don't discuss your salary with your team members and don't ask them abour their salary.
+
+3) If you got job with fake exp, don't reveal that to your team members.
+
+4) Don't use social media sites in company provided laptops.
+
+5) Don't abscond from the company.
+
+6) Don't miss project daily meetings.
+
+==========================
+Do's in Software Company 
+==========================
+
+1) Maintain friendly relationship with your team members
+
+2) Every month setup one to one meeting with your manager and discuss abour your performance.
+		
+			- showcase your work
+			- understand your roles & responsibilities
+			- any improvements required
+
+3) Provide KT sessions for new team members
+
+4) Conduct internal trainings for team members 
+
+5) Do some certifications 
+
+	Ex: Java Certification, AWS Cloud Certifications
+			
+====================
+Joining Formalities
+====================
+
+1) Company Onboarding process
+	
+	 - Meet Onboarding HR on your joining date
+
+	 - Fillup employment documents & submit to HR dept
+
+	 - Collect ID card (badging section)
+
+	 - Collect Laptop (IT department)
+
+	 - Collect Salary account( you can use existing account )
+
+	 - Update salary account details in HR portal.
+
+	 - Attend Induction Program (HR will explain company policies)
+
+	 		- leave policies + encashment
+	 		- public holidays
+	 		- salary credit date
+	 		- dress code
+	 		- adv salary process
+	 		- medical insurance policy
+	 		- Company HR portal
+
+
+2) Meeting with RM (Resource Manager)
+
+	- RM will identify project openinings based on your skills
+
+	- RM will schedule project interview for you
+		(to check your skills matching with project tech stack)
+
+	- Attend project interview
+
+	- If you get selected, then project allocation
+
+	- if you get rejected, RM will find another project for you
+
+
+3) Project Onboarding
+
+	 - Meet Project PMO (Project Mgmt & Operations)
+
+	 - Sign project related docs
+
+	 - Meet manager & team lead
+
+	 - Meeting with team
+
+	 - Attend KT sessions
+
+	 - Attend Project Meetings
+
+	 - Task assignment
+
+=================
+Exit Formalities
+=================
+
+=> After getting offer letter from another company, setup one to one meeting with project manager to inform that u r going to resign.
+
+=> Submit resignitation in HR portal.
+
+=> HR team will send an email regarding notice period and last working date.
+
+=> During notice period you need to provide KTs.
+
+=> Download payslips, form-16, hike letters, exp letters, reliving letter etc and send to your personal email.
+
+=> On last working date, submit company belongings (ID card, Laptop, mouse, headset etc..)
+
+=> On last working date give lunch treat for your team.
+
+Note: After exit, with in one month our full and final settlement will be completed (F & F).
+
+
+==================================
+How to explain self introduction
+==================================
+
+## Part-1 : Explain Your Name + yrs.Exp + current Company
+
+Ex : 
+
+=> My name is Ashok having 3+ yrs exp as Java Fullstack developer.
+
+=> Currently working with Deloitte company as software engineer
+
+## Part-2 : Explain your technical skills
+	
+=> I am having good work experience with Java J2EE technologies
+
+=> I am having good work experience with SpringBoot, ReST API, Spring Cloud and Microservices development.
+
+=> I am having good work experience with Frontend development using HTML,CSS, JS, BS and Angular framework.
+
+=> I am having good knowledge on DevOps tools like git, maven, sonar, jenkins, docker, kubernetes..
+
+=> I am good exposure on Linux OS and AWS cloud services like EC2, RDS, IAM, Beanstack, Lambdas, S3 etc..
+
+
+## Part-3 : Explain your roles & responsibilities
+
+=> Understand requirements given by functional team
+
+=> Analyze requirements & ask questions if any
+
+=> Database Design for the requirement
+
+=> Components Design (java classes & methods)
+
+=> Development + Unit Testing
+
+=> Code Review 
+
+=> Code Integration
+
+=> Code Deployment using Jenkins pipeline
+
+=> Bug fixing
+
+=> Documentation
+
+=> Provide KT sessions
+
+=============================
+Explain about your project
+=============================
+
+=> I worked  on E-Commerce application (godrej interio) this is providing online shopping for the customers.
+
+=> In this application we have several modules like 
+
+1) Product Listing
+
+2) Cart Module
+
+3) Checkout 
+
+4) Orders
+
+5) Inventory
+
+6) Admin 
+
+7) Customers etc..
+
+=============================================
+Day to day activities in software company
+=============================================
+
+1) We need to check your email and give replies if required.
+
+2) Check meetings calendar and prepare accordingly to join those meetings.
+
+3) Check JIRA board and identify tasks assigned on your name.
+
+Note: If no task is assigned then you take one task and assign to yourself.
+
+4) Work on the task and try to complete as early as possible.
+
+5) Join scrum call and give work updates to scrum master.
+
+Note: If no pending tasks available to do then inform to your management then they will assign work for you (ex: documentation, R & D, KT etc).
+
+=====================================================
+What are the challenges you faced in the project ?
+=====================================================
+
+1) Payment gateway integration
+
+2) Batch processing performance tuning
+
+=====================================================
+What kind of documents you prepared in the project ?
+=====================================================
+
+=> Performance improvement with Executors Framework
+
+=> Payment Gateway Integration documentation
+
+=> Jenkins CI CD pipeline documentation
+
+========================================================
+What is the latest task you have done in your project ?
+========================================================
+
+=> Recently i have implement report generation for the orders which got cancelled in excel format.
+
+

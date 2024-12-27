@@ -1,0 +1,173 @@
+
+====================
+Kuberetes Software
+====================
+
+=> Docker is a containerization s/w
+
+=> Docker is free & open source
+
+=> Using Docker we will package our "application code + application dependencies" as single unit for execution. That is called as Docker image.
+
+=> Once docker image is created then we can run that image in any machine without bothering about underlying softwares.
+
+Note: Docker will take care of s/w installation which are required to run our application.
+
+=> Docker is used to run our app in any machine
+
+=============
+Kubernetes
+=============
+
+=> It is free and open source s/w
+
+=> K8S developed by google company
+
+Note: Orchestration means management.
+
+=> K8s is called as Orchestration s/w
+
+=> K8S is used to manage docker containers.
+
+Ex : create , stop, start , delete, scale up, scale down...
+
+
+===============
+K8S Advantages
+===============
+
+1) Orchestration : Manage containers
+
+2) Self Healing : If container damanged then it will create new one.
+
+3) Load Balancing : Distribute requests to all running containers
+
+4) Auto Scaling : Scale up and scale down containers on demand basis.
+
+=================
+K8S Architecture
+=================
+
+1) kubectl
+2) Control Plane
+3) Worker Nodes
+
+
+==================
+K8S Cluster Setup
+===================
+
+1) Self Managed Cluster (we are responsible for everything)
+
+	a) MiniKube (single node) --> only for learning/practice
+
+	b) Kubeadm (Multi Node) --> We have to setup
+
+2) Provider Managed Cluster (ready made cluster)
+
+	a) AWS EKS (Elastic K8S Service)
+
+	b) Azure AKS (Azure K8s Service)
+
+	c) GCP GKE	(Google K8S Engine)
+
+Note: Provider Managed clusters are commercial.
+
+==============
+AWS EKS Setup
+==============
+
+@@ Git Repo : https://github.com/ashokitschool/DevOps-Documents/blob/main/05-EKS-Setup.md
+
+================
+K8S Terminology
+================
+
+1) PODS
+2) Services
+3) Namespaces
+4) Deployment
+
+==============
+What is POD ?
+==============
+
+=> POD is a smallest building block that will be created in k8s cluster.
+
+=> In k8s, everything will be represented/managed as a POD only.
+
+=> Inside POD, container will be created.
+
+=> POD is accessible only with in the cluster.
+
+=> To access our application which is running inside the POD then we have to expose the PODS.
+
+=> To expose PODS we will use k8s services.
+
+=============
+K8S Services
+==============
+
+=> In k8s we have 3 types of services.
+
+		1) ClusterIP
+		2) NodePort
+		3) LoadBalancer
+
+=> ClusterIP is used to map all pods to single IP to access with in cluster.
+
+=> To expose the pods outside cluster we can use NodePort service.
+
+Note: When we use NodePort service we can access PODS which are running in particular worker node only.
+
+=> If we want to access all the pods running in all worker nodes then we will expose pods using LoadBalancer service.
+
+Note: When we use LoadBalancer, internally EKS will create AWS LBR to access our pods outside of the cluster.
+
+=====================
+What is Namespace ?
+=====================
+
+=> Namespaces are equal to packages in java.
+
+=> K8s namespaces are used to group k8s resources logically.
+
+		database_pods ====> ashokit_db_ns
+		
+		backend_app_pods ====> ashokit_backend_ns
+
+		frontend_app_pods ====> ashokit_frontend_ns
+
+===================
+What is Deployment
+===================
+
+=> Deployment is a k8s resource which is used to manage k8s pods lifecycle.
+
+		a) create pods
+		b) scale up
+		c) scale down
+		d) load balancing
+		e) auto scaling
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

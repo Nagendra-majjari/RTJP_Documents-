@@ -1,0 +1,91 @@
+
+==================
+Circuit breaker
+==================
+
+=> It is one of the most used design pattern in microservices developement.
+
+=> It is used to implement fault tolerant systems.
+
+=> It is used to implement resillence systems.
+
+=> When our main logic execution is failed then we have to execute some fallback logic to send some response to client.
+
+-----------
+Usecase :
+-----------
+
+=> m1() method getting data from redis server
+
+=> m2() method getting data from db server
+
+Note: When m1() method failed then we have to execute m2() method to fetch data from db server. This is called as fallback logic execution.
+
+=> If our system having fallback logic mechanism then it is called as Fault Tolerant system or Resillence system.
+
+============================================================
+can we implement fault tolerance using try-cath like below?
+============================================================
+
+try{
+  m1();
+}catch(Ex e){
+    m2();
+}
+
+=> The above logic is not recommended bcz everytime it is calling m1() method which is failing continuosly.
+
+=> To handle this scenario we will use Circuit Breaker design pattern.
+
+=> if m1() method failed continously 5 times then don't execute m1() method for next 30 mins... and execute m2() method directley inplace of m1().
+
+Note: After 30 mins try to call m1() method if it is working successfully then continue with m1() or else continue with m2() for next 30 mins...
+
+=======================
+Circuit Breaker States
+=======================
+
+=> CircuitBreaker works based on 3 states
+
+		1) CLOSED
+		2) OPEN
+		3) HALF_OPEN
+
+CLOSED : System is having normal flow. System working as expected.
+
+OPEN : Some fault occured in system, normal flow effected then Circuit Breaker will OPEN then only fallback logic will execute for given amount of time.
+
+Note: When given amount of time completed for fallback logic, then Circuit Breaker will go to HALF_OPEN state.
+
+HALF_OPEN : System will try to execute normal flow, if normal flow is working as expected then Circuit Breaker will be CLOSED. If normal flow not working as expected then Circuit Breaker will go to OPEN state.
+
+================================
+SpringBoot with Circuit Breaker
+================================
+
+=> In SpringBoot we can implement Circuit Breaker in 2 ways
+
+		1) Hystrix (outdated)
+
+		2) Resillence4J (trending)
+
+# Step-1 :: Create SpringBoot application with below dependencies
+
+	a) web-starter
+	b) aop
+	c) actuator
+	d) resillence4j
+
+# Step-2 :: Create RestController class with required methods.
+
+## Step-3 :: Configure Circuit Breaker properties in application.yml file.
+
+## Step-4 :: Run the application and monitor circuit breaker status using actuator health endpoint.
+
+
+
+
+
+
+
+
